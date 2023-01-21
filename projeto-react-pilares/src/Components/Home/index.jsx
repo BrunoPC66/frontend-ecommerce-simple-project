@@ -1,58 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Cart } from "../Cart";
 import { Filter } from "../Filter";
-import { Products } from "../Products";
+import { Produtos } from "../Produtos";
 
 
-export function Home({pagina}) {
 
-    const arrayProdutos = [{
-        "nome": "",
-        "valor": 0,
-        "img": "url"
-    },
-    {
-        "nome": "",
-        "valor": 0,
-        "img": "url"
-    },
-    {
-        "nome": "",
-        "valor": 0,
-        "img": "url"
-    },
-    {
-        "nome": "",
-        "valor": 0,
-        "img": "url"
-    },
-    {
-        "nome": "",
-        "valor": 0,
-        "img": "url"
-    },
-    {
-        "nome": "",
-        "valor": 0,
-        "img": "url"
-    }]
-    const [listaProdutos, setListaProduto] = useState(arrayProdutos)
-
-    const comprarProduto = () => {
-        useEffect(() => {
-            localStorage.setItem()
-        }, [])
-    }
+export function Home({
+    pagina,
+    addAoCarrinho,
+    listaProdutos,
+    listaCarrinho,
+    setListaCarrinho,
+    setItem,
+    precoMin,
+    setPrecoMin,
+    precoMax,
+    setPrecoMax,
+    filtraNome,
+    setFiltraNome,
+    ordem,
+    setOrdem
+}) {
 
     return (
-        <div>
+    <div>
         {pagina === 1 ?
         <>
-        <Filter/>
-        <Products listaProdutos={listaProdutos}/>
+        <Filter
+        listaProdutos={listaProdutos}
+        precoMin={precoMin}
+        setPrecoMin={setPrecoMin}
+        precoMax={precoMax}
+        setPrecoMax={setPrecoMax}
+        filtraNome={filtraNome}
+        setFiltraNome={setFiltraNome}
+        ordem={ordem}
+        setOrdem={setOrdem}
+        />
+        <Produtos listaProdutos={listaProdutos}
+        addAoCarrinho={addAoCarrinho}
+        precoMin={precoMin}
+        precoMax={precoMax}
+        filtraNome={filtraNome}
+        />
         </>
         :
-        <Cart listaProdutos={listaProdutos}/>}
-        </div>
+        <Cart listaCarrinho={listaCarrinho}
+        setListaCarrinho={setListaCarrinho}
+        setItem={setItem}
+        />}
+    </div>
     )
 }
