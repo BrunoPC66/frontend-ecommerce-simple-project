@@ -18,16 +18,20 @@ export function Filter({
     }
 
     const onChangeValorMax = (e) => {
+        if (precoMax == "") {
+           return setPrecoMax(Infinity)
+        }
         setPrecoMax(e.target.value)
-    }
-
+        
+        console.log(precoMax);
+    }  
+    
     const onChangeNome = (e) => {
         setFiltraNome(e.target.value)
     }
 
     const selecionaOrdem = (e) => {
         setOrdem({value: e.target.value});
-        console.log(e);
     }
 
     listaProdutos.sort((a, b)=>{
@@ -38,11 +42,12 @@ export function Filter({
         }
     })
 
+
     return (
         <div>
                 <label>
                     Valor Min: <input type="number" name="valorMin" placeholder="Valor Min" onChange={(e)=>onChangeValorMin(e)}/>
-                    Valor Max: <input type="number" name="valorMax" placeholder="Valor Max" onChange={(e)=>onChangeValorMax(e)}/>
+                    Valor Max: <input type="number" value={precoMax} name="valorMax" placeholder="Valor Max" onChange={(e)=>onChangeValorMax(e)}/>
                     Nome: <input type="text" name="nome" placeholder="Nome" onChange={(e)=>onChangeNome(e)}/>
                 </label>
                 <select onChange={selecionaOrdem}>

@@ -18,19 +18,20 @@ export function Cart({listaCarrinho, setListaCarrinho, setItem}) {
           setListaCarrinho(removerProduto)
         } 
         else {
-          const removerProduto = listaCarrinho.filter((item)=> {
+          const removeProduto = listaCarrinho.filter((item)=> {
             return item.id !== produto.id
           })
-          setListaCarrinho(removerProduto)
-          // localStorage.setItem("produto", JSON.stringify({}))
+          setListaCarrinho(removeProduto)
         }
       };    
 
-    let total = 0;
-
-    listaCarrinho.map((item) => {
+    let total = 0
+    
+      listaCarrinho.map((item) => {
       total += item.valor*item.quantidade
-    });
+      console.log(item.valor);
+    })
+
 
     console.log(listaCarrinho);
 

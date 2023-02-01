@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from "react";
 import { Header } from "./Components/Header";
 import { Home } from "./Components/Home";
-import {Ads} from "./Components/Ads"
+import { Ads } from "./Components/Ads"
 import { Navbar } from "./Components/Navbar";
 import { Footer } from "./Components/Footer";
 import { ArrayProdutos } from "./Data/ArrayProdutos";
 import { GlobalStyles } from "./GlobalStyles/GlobalStyles";
 
 function App() {
-
-  // CONSERTAR IS NOT A FUNCTION
-  // TEM QUE AJEITAR O LOCALSTORAGE DEPOIS DE DAR F5 NA PAG
+  
   const [pagina, setPagina] = useState(1)
   const [listaProdutos, setListaProduto] = useState(ArrayProdutos)
   const [listaCarrinho, setListaCarrinho] = useState([])
@@ -24,7 +22,7 @@ function App() {
   };
 
   const getItem = () => {
-    setListaCarrinho(JSON.parse(localStorage.getItem("produto")))
+    setListaCarrinho([...listaCarrinho, JSON.parse(localStorage.getItem("produto"))])
   };
 
   const addAoCarrinho = (produto) => {
@@ -45,7 +43,7 @@ function App() {
   };
   
   useEffect(()=>{
-    getItem()
+    return listaCarrinho
   }, []);
 
   const mudaPagina = (pagina) => {

@@ -3,7 +3,7 @@ import nebulosa from "../img/teste-nebulosa.png"
 export const ArrayProdutos = [
 {
     "id": 1,
-    "nome": "B",
+    "nome": "Colar Nebulosa",
     "valor": 46.45,
     "img": nebulosa
 },
@@ -21,7 +21,7 @@ export const ArrayProdutos = [
 },
 {
     "id": 4,
-    "nome": "A",
+    "nome": "f",
     "valor": 99.90,
     "img": nebulosa
 },

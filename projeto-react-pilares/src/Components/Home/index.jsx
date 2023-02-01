@@ -19,7 +19,8 @@ export function Home({
     filtraNome,
     setFiltraNome,
     ordem,
-    setOrdem
+    setOrdem,
+    removerDoCarrinho
 }) {
 
     return (
@@ -37,7 +38,8 @@ export function Home({
         ordem={ordem}
         setOrdem={setOrdem}
         />
-        <Produtos listaProdutos={listaProdutos}
+        <Produtos
+        listaProdutos={listaProdutos}
         addAoCarrinho={addAoCarrinho}
         precoMin={precoMin}
         precoMax={precoMax}
@@ -45,7 +47,8 @@ export function Home({
         />
         </>
         :
-        <Cart listaCarrinho={listaCarrinho}
+        <Cart
+        listaCarrinho={listaCarrinho}
         setListaCarrinho={setListaCarrinho}
         setItem={setItem}
         />}
