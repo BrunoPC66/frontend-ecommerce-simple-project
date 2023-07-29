@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "./Components/Header";
 import { Home } from "./Components/Home";
-import { Ads } from "./Components/Ads"
+import { Ads } from "./Components/Ads/ads"
 import { Navbar } from "./Components/Navbar";
 import { Footer } from "./Components/Footer";
 import { ArrayProdutos } from "./Data/ArrayProdutos";
 import { GlobalStyles } from "./GlobalStyles/GlobalStyles";
 
 function App() {
-  
+
   const [pagina, setPagina] = useState(1)
   const [listaProdutos, setListaProduto] = useState(ArrayProdutos)
   const [listaCarrinho, setListaCarrinho] = useState([])
@@ -22,57 +22,61 @@ function App() {
   };
 
   const getItem = () => {
-    setListaCarrinho([...listaCarrinho, JSON.parse(localStorage.getItem("produto"))])
+    setListaCarrinho(JSON.parse(localStorage.getItem("produto")))
   };
 
   const addAoCarrinho = (produto) => {
-    setItem()
-    const noCarrinho = listaCarrinho.find((item)=> item.id === produto.id)
+    const noCarrinho = listaCarrinho.find((item) => item.id === produto.id)
     if (noCarrinho === undefined) {
-      setListaCarrinho([...listaCarrinho, {...produto, quantidade:1}])
+      setListaCarrinho([...listaCarrinho, { ...produto, quantidade: 1 }])
     } else {
-      const aumentaQtd = listaCarrinho.map((item)=>{
+      const aumentaQtd = listaCarrinho.map((item) => {
         if (item.id === produto.id) {
-          return {...noCarrinho, quantidade: noCarrinho.quantidade+1}
+          return { ...noCarrinho, quantidade: noCarrinho.quantidade + 1 }
         } else {
           return item
         }
       })
       setListaCarrinho(aumentaQtd)
+      console.log(listaCarrinho);
     }
+    setItem()
   };
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     return listaCarrinho
   }, []);
 
   const mudaPagina = (pagina) => {
-      setPagina(pagina)
+    setPagina(pagina)
   };
 
   return (
     <div>
-      <GlobalStyles/>
+      <GlobalStyles />
       <Header mudaPagina={mudaPagina} />
-      <Navbar mudaPagina={mudaPagina} />
-      <Home 
-      pagina={pagina}
-      addAoCarrinho={addAoCarrinho}
-      listaProdutos={listaProdutos}
-      listaCarrinho={listaCarrinho}
-      setListaCarrinho={setListaCarrinho}
-      setItem={setItem}
-      precoMin={precoMin}
-      setPrecoMin={setPrecoMin}
-      precoMax={precoMax}
-      setPrecoMax={setPrecoMax}
-      filtraNome={filtraNome}
-      setFiltraNome={setFiltraNome}
-      ordem={ordem}
-      setOrdem={setOrdem}
+      <Navbar
+        mudaPagina={mudaPagina}
+        getItem={getItem}
       />
-      <Ads/>
-      <Footer/>
+      <Home
+        pagina={pagina}
+        addAoCarrinho={addAoCarrinho}
+        listaProdutos={listaProdutos}
+        listaCarrinho={listaCarrinho}
+        setListaCarrinho={setListaCarrinho}
+        setItem={setItem}
+        precoMin={precoMin}
+        setPrecoMin={setPrecoMin}
+        precoMax={precoMax}
+        setPrecoMax={setPrecoMax}
+        filtraNome={filtraNome}
+        setFiltraNome={setFiltraNome}
+        ordem={ordem}
+        setOrdem={setOrdem}
+      />
+      <Ads />
+      <Footer />
     </div>
   );
 }
