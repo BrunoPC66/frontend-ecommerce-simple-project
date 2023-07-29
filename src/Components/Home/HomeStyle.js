@@ -10,4 +10,8 @@ export const HomeStyle = styled.div `
     input {
         margin: 2vh 1vw 10vh 2px;
     };
+
+    .cart {
+        width: 100%;
+    }
 `

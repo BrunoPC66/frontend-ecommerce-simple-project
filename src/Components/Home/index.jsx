@@ -3,13 +3,11 @@ import { Cart } from "../Cart";
 import { Filter } from "../Filter";
 import { Produtos } from "../Produtos";
 import { HomeStyle } from "./HomeStyle";
-
-
+import { ArrayProdutos } from "../../Data/ArrayProdutos";
 
 export function Home({
     pagina,
     addAoCarrinho,
-    listaProdutos,
     listaCarrinho,
     setListaCarrinho,
     setItem,
@@ -21,8 +19,9 @@ export function Home({
     setFiltraNome,
     ordem,
     setOrdem,
-    removerDoCarrinho
 }) {
+
+    const listaProdutos = ArrayProdutos
 
     return (
         <HomeStyle>

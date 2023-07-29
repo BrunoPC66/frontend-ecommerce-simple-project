@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/static/js/main.ae08c36a.js",
+    "static/media/7.png": "/static/media/7.8595cfa0a648947f464b.png",
+    "static/media/1.png": "/static/media/1.dace570d0ffbb8bbad33.png",
+    "static/media/3.png": "/static/media/3.f18f968286a9b31ccb1a.png",
+    "static/media/2.png": "/static/media/2.f9f730c9b0d0f528844d.png",
+    "static/media/4.png": "/static/media/4.bc748750056d210f99e8.png",
+    "static/media/6.png": "/static/media/6.7402ebe41d95d3138ca5.png",
+    "static/media/5.png": "/static/media/5.57a53dabbff4a46112e8.png",
+    "static/media/spaces-store-logo.png": "/static/media/spaces-store-logo.4d76369d7e7c7e5111f1.png",
+    "index.html": "/index.html",
+    "main.ae08c36a.js.map": "/static/js/main.ae08c36a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ae08c36a.js"
+  ]
+}

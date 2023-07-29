@@ -4,27 +4,26 @@ import { Home } from "./Components/Home";
 import { Ads } from "./Components/Ads/ads"
 import { Navbar } from "./Components/Navbar";
 import { Footer } from "./Components/Footer";
-import { ArrayProdutos } from "./Data/ArrayProdutos";
 import { GlobalStyles } from "./GlobalStyles/GlobalStyles";
 
 function App() {
-
-  const [pagina, setPagina] = useState(1)
-  const [listaProdutos, setListaProduto] = useState(ArrayProdutos)
-  const [listaCarrinho, setListaCarrinho] = useState([])
-  const [precoMin, setPrecoMin] = useState(0)
-  const [precoMax, setPrecoMax] = useState(Infinity)
-  const [filtraNome, setFiltraNome] = useState("")
-  const [ordem, setOrdem] = useState("")
-
+  
   const setItem = () => {
     localStorage.setItem("produto", JSON.stringify(listaCarrinho))
   };
-
+  
   const getItem = () => {
     setListaCarrinho(JSON.parse(localStorage.getItem("produto")))
   };
 
+  
+  const [pagina, setPagina] = useState(1)
+  const [listaCarrinho, setListaCarrinho] = useState(JSON.parse(localStorage.getItem("produto")))
+  const [precoMin, setPrecoMin] = useState(0)
+  const [precoMax, setPrecoMax] = useState(Infinity)
+  const [filtraNome, setFiltraNome] = useState("")
+  const [ordem, setOrdem] = useState("")
+  
   const addAoCarrinho = (produto) => {
     const noCarrinho = listaCarrinho.find((item) => item.id === produto.id)
     if (noCarrinho === undefined) {
@@ -38,7 +37,6 @@ function App() {
         }
       })
       setListaCarrinho(aumentaQtd)
-      console.log(listaCarrinho);
     }
     setItem()
   };
@@ -46,6 +44,8 @@ function App() {
   useEffect(() => {
     return listaCarrinho
   }, []);
+  
+  localStorage.setItem("produto", JSON.stringify(listaCarrinho))
 
   const mudaPagina = (pagina) => {
     setPagina(pagina)
@@ -62,7 +62,6 @@ function App() {
       <Home
         pagina={pagina}
         addAoCarrinho={addAoCarrinho}
-        listaProdutos={listaProdutos}
         listaCarrinho={listaCarrinho}
         setListaCarrinho={setListaCarrinho}
         setItem={setItem}

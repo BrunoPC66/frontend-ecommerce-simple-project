@@ -1,13 +1,12 @@
 import styled from "styled-components"
 
-export const Card = styled.span`
+export const Card = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0 1vw 5vh 1vw;
-    
     img {
         max-width: 30vw;
         max-height: 33vh;

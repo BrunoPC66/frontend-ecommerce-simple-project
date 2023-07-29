@@ -3,11 +3,8 @@ import React from "react";
 
 export function Filter({
     listaProdutos,
-    precoMin,
     setPrecoMin,
-    precoMax,
     setPrecoMax,
-    filtraNome,
     setFiltraNome,
     ordem,
     setOrdem
@@ -34,6 +31,8 @@ export function Filter({
             return a.valor - b.valor
         } else if (ordem.value === "decrescente") {
             return b.valor - a.valor
+        } else {
+            return listaProdutos
         }
     })
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "../Card/Card";
+import { CartStyle } from "./CartStyle";
 
 
 export function Cart({ listaCarrinho, setListaCarrinho, setItem }) {
@@ -28,8 +29,7 @@ export function Cart({ listaCarrinho, setListaCarrinho, setItem }) {
   let total = 0
 
   listaCarrinho.map((item) => {
-    total += item.valor * item.quantidade
-    console.log(item.valor);
+    return total += item.valor * item.quantidade
   })
 
 
@@ -48,8 +48,10 @@ export function Cart({ listaCarrinho, setListaCarrinho, setItem }) {
   })
 
   return (
-    <div>
-      {renderizarCarrinho}
+    <div className="cart">
+      <CartStyle>
+        {renderizarCarrinho}
+      </CartStyle>
       <p>Total: R${total.toFixed(2)}</p>
     </div>
   )
