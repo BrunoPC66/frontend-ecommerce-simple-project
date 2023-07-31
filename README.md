@@ -50,4 +50,4 @@ O projeto consistirá em 3 grandes partes:
 
 # Surge
 Você pode conferir o resultado através do seguinte link: [Space's Store](https://project-spacestore.surge.sh/){:target="_blank"}
-Clique [aqui](https://www.example.com){:target="_blank"} para abrir o link em uma nova aba.
+[Clique aqui para abrir o link em uma nova aba](https://www.example.com)
