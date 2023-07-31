@@ -47,3 +47,6 @@ O projeto consistirá em 3 grandes partes:
     - [x]  O usuário deve ser capaz de ordenar os itens em ordem crescente ou decrescente
     - [x]  O usuário deve ser capaz de adicionar  filtros, busca e ordenação simultaneamente
     - [x]  O usuário deve ser capaz de retornar à visualização sem filtros
+
+#Surge
+Você pode conferir o resultado através do seguinte link: https://project-spacestore.surge.sh/
