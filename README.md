@@ -49,4 +49,4 @@ O projeto consistirá em 3 grandes partes:
     - [x]  O usuário deve ser capaz de retornar à visualização sem filtros
 
 # Surge
-Você pode conferir o resultado através do seguinte link: <a> https://project-spacestore.surge.sh/ <a/>
+Você pode conferir o resultado através do seguinte link: <a href="https://project-spacestore.surge.sh/" target="_blank"> Space's Store <a/>
