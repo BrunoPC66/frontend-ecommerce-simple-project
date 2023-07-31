@@ -16,9 +16,14 @@ function App() {
     setListaCarrinho(JSON.parse(localStorage.getItem("produto")))
   };
 
+  const carrinhoInicial = () => {
+    const armazenadoNoCarrinho = JSON.parse(localStorage.getItem("produto"))
+
+    return armazenadoNoCarrinho || []
+  }
   
   const [pagina, setPagina] = useState(1)
-  const [listaCarrinho, setListaCarrinho] = useState(JSON.parse(localStorage.getItem("produto")))
+  const [listaCarrinho, setListaCarrinho] = useState(carrinhoInicial)
   const [precoMin, setPrecoMin] = useState(0)
   const [precoMax, setPrecoMax] = useState(Infinity)
   const [filtraNome, setFiltraNome] = useState("")
@@ -38,13 +43,12 @@ function App() {
       })
       setListaCarrinho(aumentaQtd)
     }
-    setItem()
   };
 
-  useEffect(() => {
-    return listaCarrinho
-  }, []);
-  
+  useEffect(()=>{
+    setItem()
+  },[listaCarrinho])
+
   localStorage.setItem("produto", JSON.stringify(listaCarrinho))
 
   const mudaPagina = (pagina) => {
